@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="imports">
+    <meta charset="UTF-8">
+    <title>Assignment 01</title>
+
+    <!-- Google font -->
+    <!--    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet"/>-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!--Slick-->
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/slick-theme.css">
+
+    <!--Custom styles-->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--Font awesome-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
+          type="text/css"/>
+
+
+    <!--JS, Jquery, Slick etc-->
+    <script defer src="/js/bootstrap.min.js"></script>
+    <script defer src="/js/slick.min.js"></script>
+    <script defer src="/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+<header th:fragment="header">
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="header-logo">
+                        <a class="logo" href="/">
+                            <img src="/images/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- LOGO -->
+
+                <!-- SEARCH BAR -->
+                <div class="col-md-5">
+                    <div class="header-search">
+                        <form>
+                            <input class="input" placeholder="Search here"/>
+                            <button class="search-btn">Search</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ACCOUNT -->
+                <div class="col-md-4 clearfix">
+                    <div class="header-ctn">
+                        <!-- Cart -->
+                        <div class="dropdown">
+                            <a th:href="@{/cart}">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Your Cart</span>
+                            </a>
+                        </div>
+                        <!-- /Cart -->
+
+                        <!-- Login -->
+                        <div sec:authorize="isAnonymous()">
+                            <a th:href="@{/login}">
+                                <i class="fa fa-sign-in"></i>
+                                <span>Login</span>
+                            </a>
+                        </div>
+                        <!-- Login -->
+
+                        <!-- Register -->
+                        <div sec:authorize="isAnonymous()">
+                            <a th:href="@{/register}">
+                                <i class="fa fa-user"></i>
+                                <span>Register</span>
+                            </a>
+                        </div>
+                        <!-- Register -->
+
+                        <!-- Logout -->
+                        <div sec:authorize="isAuthenticated()">
+                            <a th:href="@{/logout}">
+                                <i class="fa fa-sign-out"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                        <!-- Logout -->
+
+                    </div>
+                </div>
+                <!-- /ACCOUNT -->
+
+
+            </div>
+        </div>
+    </div>
+</header>
+
+</body>
+</html>
