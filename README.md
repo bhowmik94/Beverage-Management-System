@@ -1,5 +1,5 @@
-# group1
-
+# Beverage Management System (group1)
+This project was part of my master course called Distributed Systems and Middleware. There were five of us in total who contributed to this project. 
 
 
 ## Getting started
